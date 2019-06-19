@@ -25,6 +25,6 @@ public class RobotMap {
   // public static int rangefinderModule = 1;
 
   public static int mod1 = 0;
-  public static int sully1 = 1;
+  public static int sully1id = 1;
   
 }

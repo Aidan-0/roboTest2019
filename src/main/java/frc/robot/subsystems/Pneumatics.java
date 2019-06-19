@@ -19,6 +19,11 @@ public class Pneumatics extends Subsystem {
 
   public Solenoid sully1;
 
+  public Pneumatics(int mod1, int sully1id) {
+
+    sully1 = new Solenoid(mod1, sully1id);
+    
+  }
   public void PistonIn() {
     sully1.set(true);
   }
