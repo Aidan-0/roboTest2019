@@ -9,8 +9,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.robot.commands.PistonIn;
-import frc.robot.commands.PistonOut;
+import frc.robot.commands.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -26,7 +25,9 @@ public class OI {
   // Button button = new JoystickButton(stick, buttonNumber);
 
   private Joystick stickBoi = new Joystick(0);
-  JoystickButton buttBoi = new JoystickButton(stickBoi, 5);
+
+  private JoystickButton sully1buttBoi = new JoystickButton(stickBoi, 5);
+  private JoystickButton motorButton = new JoystickButton(stickBoi, 1);
 
   // There are a few additional built in buttons you can use. Additionally,
   // by subclassing Button you can create custom triggers and bind those to
@@ -50,8 +51,11 @@ public class OI {
 
   public OI() {
 
-    buttBoi.whenPressed(new PistonOut());
-    buttBoi.whenReleased(new PistonIn());
+    sully1buttBoi.whenPressed(new PistonOut());
+    sully1buttBoi.whenReleased(new PistonIn());
 
+    // I don't know how to do actual joystick movement mapping so I'm just going to do a button
+    motorButton.whileHeld(new MovingMotors());
+    motorButton.whenReleased(new StoppingMotors());
   }
 }
