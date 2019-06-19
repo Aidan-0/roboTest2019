@@ -9,6 +9,7 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -19,10 +20,14 @@ public class Drivetrain extends Subsystem {
   // here. Call these from Commands.
 
   public WPI_TalonSRX tally1;
+  public Encoder encoder1;
 
-  public Drivetrain(int tally1id) {
+  public Drivetrain(int tally1id, int encoder1id) {
 
     tally1 = new WPI_TalonSRX(tally1id);
+    /* encoder1 = new Encoder(sourceA, sourceB);
+    I have no idea what i'm doing with encoders
+    */
 
   }
 
@@ -35,7 +40,7 @@ public class Drivetrain extends Subsystem {
   public void StoppingMotors() {
 
     tally1.set(0);
-    
+
   }
 
   @Override
