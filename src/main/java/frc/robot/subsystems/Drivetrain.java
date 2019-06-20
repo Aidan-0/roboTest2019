@@ -33,7 +33,7 @@ public class Drivetrain extends Subsystem {
 
   public void MovingMotors() {
 
-    tally1.set(0.5);
+    tally1.set(0.5); //moves moto moto
 
   }
 
