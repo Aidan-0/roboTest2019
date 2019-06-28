@@ -19,13 +19,13 @@ public class Pneumatics extends Subsystem {
   // here. Call these from Commands.
 
   public Solenoid sully1;
-  public DoubleSolenoid sully2;
+  public DoubleSolenoid doubleSully1;
   //public Boolean DoubleTrouble;
 
-  public Pneumatics(int mod1, int sully1id, int sully2id1, int sully2id2) {
+  public Pneumatics(int pcm, int sully1id, int doubleSully2id1, int doubleSully2id2) {
 
-    sully1 = new Solenoid(mod1, sully1id);
-    sully2 = new DoubleSolenoid(mod1, sully2id1, sully2id2);
+    sully1 = new Solenoid(pcm, sully1id);
+    doubleSully1 = new DoubleSolenoid(pcm, doubleSully2id1, doubleSully2id2);
     
   }
   public void PistonIn() {
@@ -36,13 +36,23 @@ public class Pneumatics extends Subsystem {
     sully1.set(true);
   }
 
-  public void DoubleOut() {
-    //if ()
+  public void DoubleIn() {
+    doubleSully1.set(DoubleSolenoid.Value.kReverse);
   }
 
+  public void DoubleOut() {
+    doubleSully1.set(DoubleSolenoid.Value.kForward);
+  }
+
+  public void DoubleTroubleToggle () {
+
+    
+
+  }
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
   }
+
 }

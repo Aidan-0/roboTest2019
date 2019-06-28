@@ -13,8 +13,8 @@ import frc.robot.Robot;
 /**
  * An example command.  You can replace me with your own command.
  */
-public class DoubleOut extends Command {
-  public DoubleOut() {
+public class DoubleIn extends Command {
+  public DoubleIn() {
     // Use requires() here to declare subsystem dependencies
     requires(Robot.m_subsystem);
   }
@@ -27,7 +27,7 @@ public class DoubleOut extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.pneumatics.DoubleOut();
+    Robot.pneumatics.DoubleIn();
   }
 
   // Make this return true when this Command no longer needs to run execute()

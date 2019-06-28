@@ -24,14 +24,14 @@ public class RobotMap {
   // public static int rangefinderPort = 1;
   // public static int rangefinderModule = 1;
 
-  public static int mod1 = 1;
+  public static int pcm = 1;
   public static int sully1id = 0;
-  public static int sully2id1 = 2;
-  public static int sully2id2 = 3;
+  public static int doubleSully2id1 = 1;
+  public static int doubleSully2id2 = 2;
 
   public static int tally1id = 1;
 
   public static int encoder1id = 0; //null
-  public int encoder1value = 0; 
+  //public int encoder1value = 0; 
   
 }
