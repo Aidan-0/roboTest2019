@@ -16,11 +16,11 @@ import edu.wpi.first.wpilibj.command.WaitCommand;
 public class AutoPistons extends CommandGroup {
   public AutoPistons() {
     // Use requires() here to declare subsystem dependencies
-    addSequential(new DoubleToggle());
+    addSequential(new DoubleOut());
     addSequential(new WaitCommand(1));
     addSequential(new PistonOut());
-    addSequential(new WaitCommand(1));
-    addSequential(new DoubleToggle());
+    addSequential(new WaitCommand(1));                    
+    addSequential(new DoubleIn());
     addParallel(new PistonIn());
   }
 /*

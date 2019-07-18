@@ -39,28 +39,21 @@ public class Pneumatics extends Subsystem {
   public void DoubleToggle() {
     if (DoubleTrouble == true) {
       sully2.set(Value.kForward);
-      DoubleTrouble = false;
     }
     if (DoubleTrouble == false) {
       sully2.set(Value.kReverse);
-      DoubleTrouble = true;
     }
 
   }
 
   public void DoubleIn() {
-    doubleSully1.set(DoubleSolenoid.Value.kReverse);
+    sully2.set(DoubleSolenoid.Value.kForward);
   }
 
   public void DoubleOut() {
-    doubleSully1.set(DoubleSolenoid.Value.kForward);
+    sully2.set(DoubleSolenoid.Value.kReverse);
   }
 
-  public void DoubleTroubleToggle () {
-
-    
-
-  }
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
