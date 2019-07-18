@@ -26,6 +26,9 @@ public class RobotMap {
 
   public static int mod1 = 0;
   public static int sully1id = 1;
+  
+  public static int sully2id1 = 2;
+  public static int sully2id2 = 3;
 
   public static int tally1id = 1;
 

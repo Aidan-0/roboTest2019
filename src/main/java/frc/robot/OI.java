@@ -26,8 +26,11 @@ public class OI {
 
   private Joystick stickBoi = new Joystick(0);
 
-  private JoystickButton sully1buttBoi = new JoystickButton(stickBoi, 5);
+  private JoystickButton sully1buttBoi = new JoystickButton(stickBoi, 3);
+  private JoystickButton doubleButton = new JoystickButton(stickBoi, 2);
+  private JoystickButton autoButton = new JoystickButton(stickBoi, 4);
   private JoystickButton motorButton = new JoystickButton(stickBoi, 1);
+  
 
   // There are a few additional built in buttons you can use. Additionally,
   // by subclassing Button you can create custom triggers and bind those to
@@ -53,6 +56,9 @@ public class OI {
 
     sully1buttBoi.whenPressed(new PistonOut());
     sully1buttBoi.whenReleased(new PistonIn());
+
+    doubleButton.whenPressed(new DoubleToggle());
+    autoButton.whenPressed(new AutoPistons());
 
     // I don't know how to do actual joystick movement mapping so I'm just going to do a button
     motorButton.whileHeld(new MovingMotors());

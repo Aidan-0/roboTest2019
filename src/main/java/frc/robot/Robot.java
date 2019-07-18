@@ -25,7 +25,7 @@ import frc.robot.subsystems.*;
 public class Robot extends TimedRobot {
   public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
   public static OI m_oi;
-  public static Pneumatics pneumatics = new Pneumatics(RobotMap.mod1, RobotMap.sully1id);
+  public static Pneumatics pneumatics = new Pneumatics(RobotMap.mod1, RobotMap.sully1id, RobotMap.sully2id1, RobotMap.sully2id2);
   public static Drivetrain drivetrain = new Drivetrain(RobotMap.tally1id, RobotMap.encoder1id);
 
   Command m_autonomousCommand;

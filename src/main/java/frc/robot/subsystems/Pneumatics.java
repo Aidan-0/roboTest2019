@@ -7,7 +7,9 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -18,10 +20,13 @@ public class Pneumatics extends Subsystem {
   // here. Call these from Commands.
 
   public Solenoid sully1;
+  public DoubleSolenoid sully2;
+  public boolean DoubleTrouble = false;
 
-  public Pneumatics(int mod1, int sully1id) {
+  public Pneumatics(int mod1, int sully1id, int sully2id1, int sully2id2) {
 
     sully1 = new Solenoid(mod1, sully1id);
+    sully2 = new DoubleSolenoid(mod1, sully2id1, sully2id2);
     
   }
   public void PistonIn() {
@@ -30,6 +35,17 @@ public class Pneumatics extends Subsystem {
 
   public void PistonOut() {
     sully1.set(false);
+  }
+  public void DoubleToggle() {
+    if (DoubleTrouble == true) {
+      sully2.set(Value.kForward);
+      DoubleTrouble = false;
+    }
+    if (DoubleTrouble == false) {
+      sully2.set(Value.kReverse);
+      DoubleTrouble = true;
+    }
+
   }
 
   @Override

@@ -32,15 +32,11 @@ public class Drivetrain extends Subsystem {
   }
 
   public void MovingMotors() {
-
     tally1.set(0.5);
-
   }
 
   public void StoppingMotors() {
-
     tally1.set(0);
-
   }
 
   @Override
