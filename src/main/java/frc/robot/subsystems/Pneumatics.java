@@ -30,11 +30,11 @@ public class Pneumatics extends Subsystem {
     
   }
   public void PistonIn() {
-    sully1.set(true);
+    sully1.set(false);
   }
 
   public void PistonOut() {
-    sully1.set(false);
+    sully1.set(true);
   }
   public void DoubleToggle() {
     if (DoubleTrouble == true) {
@@ -48,9 +48,23 @@ public class Pneumatics extends Subsystem {
 
   }
 
+  public void DoubleIn() {
+    doubleSully1.set(DoubleSolenoid.Value.kReverse);
+  }
+
+  public void DoubleOut() {
+    doubleSully1.set(DoubleSolenoid.Value.kForward);
+  }
+
+  public void DoubleTroubleToggle () {
+
+    
+
+  }
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
   }
+
 }

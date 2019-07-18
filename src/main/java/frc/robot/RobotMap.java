@@ -33,6 +33,6 @@ public class RobotMap {
   public static int tally1id = 1;
 
   public static int encoder1id = 0; //null
-  public int encoder1value = 0; 
+  //public int encoder1value = 0; 
   
 }
