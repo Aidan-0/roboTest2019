@@ -20,13 +20,13 @@ public class Pneumatics extends Subsystem {
   // here. Call these from Commands.
 
   public Solenoid sully1;
-  public DoubleSolenoid sully2;
+  public DoubleSolenoid doubleSully1;
   public boolean DoubleTrouble = false;
 
-  public Pneumatics(int mod1, int sully1id, int sully2id1, int sully2id2) {
+  public Pneumatics(int mod1, int sully1id, int doubleSully1id1, int doubleSully1id2) {
 
     sully1 = new Solenoid(mod1, sully1id);
-    sully2 = new DoubleSolenoid(mod1, sully2id1, sully2id2);
+    doubleSully1 = new DoubleSolenoid(mod1, doubleSully1id1, doubleSully1id2);
     
   }
   public void PistonIn() {
@@ -38,20 +38,20 @@ public class Pneumatics extends Subsystem {
   }
   public void DoubleToggle() {
     if (DoubleTrouble == true) {
-      sully2.set(Value.kForward);
+      doubleSully1.set(Value.kForward);
     }
     if (DoubleTrouble == false) {
-      sully2.set(Value.kReverse);
+      doubleSully1.set(Value.kReverse);
     }
 
   }
 
   public void DoubleIn() {
-    sully2.set(DoubleSolenoid.Value.kForward);
+    doubleSully1.set(DoubleSolenoid.Value.kForward);
   }
 
   public void DoubleOut() {
-    sully2.set(DoubleSolenoid.Value.kReverse);
+    doubleSully1.set(DoubleSolenoid.Value.kReverse);
   }
 
   @Override
