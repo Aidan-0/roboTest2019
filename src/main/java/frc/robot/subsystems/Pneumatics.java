@@ -18,7 +18,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Pneumatics extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-
+  //hey, i changed operating systems again, yay!
   public Solenoid sully1;
   public DoubleSolenoid doubleSully1;
   public boolean DoubleTrouble = false;
