@@ -22,13 +22,11 @@ public class Drivetrain extends Subsystem {
 
   public WPI_TalonSRX tally1;
   public int encoder1;
+  public int variance = 300;
 
   public Drivetrain(int tally1id, int encoder1id) {
 
-    tally1 = new WPI_TalonSRX(tally1id);
-    encoder1 = tally1.getSensorCollection().getQuadraturePosition();
-    //I have no idea what i'm doing with encoders
-    
+    tally1 = new WPI_TalonSRX(tally1id);   
 
   }
 
@@ -42,7 +40,9 @@ public class Drivetrain extends Subsystem {
 
   public void AutoCorrect() {
     encoder1 = tally1.getSensorCollection().getQuadraturePosition();
-    
+    if (encoder1 > variance) {
+      tally1.getSensorCollection().setQuadraturePosition(50);
+    }
   }
   
   @Override
