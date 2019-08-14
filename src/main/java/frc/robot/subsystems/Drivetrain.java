@@ -11,6 +11,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.commands.AutoCorrect;
 
 /**
  * An example subsystem.  You can replace me with your own Subsystem.
@@ -20,14 +21,14 @@ public class Drivetrain extends Subsystem {
   // here. Call these from Commands.
 
   public WPI_TalonSRX tally1;
-  public Encoder encoder1;
+  public int encoder1;
 
   public Drivetrain(int tally1id, int encoder1id) {
 
     tally1 = new WPI_TalonSRX(tally1id);
-    /* encoder1 = new Encoder(sourceA, sourceB);
-    I have no idea what i'm doing with encoders
-    */
+    encoder1 = tally1.getSensorCollection().getQuadraturePosition();
+    //I have no idea what i'm doing with encoders
+    
 
   }
 
@@ -39,8 +40,14 @@ public class Drivetrain extends Subsystem {
     tally1.set(0);
   }
 
+  public void AutoCorrect() {
+    encoder1 = tally1.getSensorCollection().getQuadraturePosition();
+    
+  }
+  
   @Override
   public void initDefaultCommand() {
+    
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
   }
