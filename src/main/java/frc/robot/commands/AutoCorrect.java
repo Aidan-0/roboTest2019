@@ -34,6 +34,7 @@ public class AutoCorrect extends Command {
   @Override
   protected boolean isFinished() {
     return false;
+    //some test comment, delete later
   }
 
   // Called once after isFinished returns true
