@@ -9,8 +9,8 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
-import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.AutoCorrect;
 
 /**
@@ -22,6 +22,7 @@ public class Drivetrain extends Subsystem {
 
   public WPI_TalonSRX tally1;
   public int encoder1;
+  public int breakPoint = 50;
   public int variance = 300;
 
   public Drivetrain(int tally1id, int encoder1id) {
@@ -40,8 +41,9 @@ public class Drivetrain extends Subsystem {
 
   public void AutoCorrect() {
     encoder1 = tally1.getSensorCollection().getQuadraturePosition();
-    if (encoder1 > variance) {
-      tally1.getSensorCollection().setQuadraturePosition(50);
+    SmartDashboard.putNumber("Encoder is at pos: ", encoder1);
+    if (encoder1>(breakPoint+variance)) {
+      tally1.set(1);
     }
   }
   
@@ -49,6 +51,6 @@ public class Drivetrain extends Subsystem {
   public void initDefaultCommand() {
     
     // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(new AutoCorrect());
   }
 }
