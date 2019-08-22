@@ -63,6 +63,8 @@ public class OI {
     // I don't know how to do actual joystick movement mapping so I'm just going to do a button
     motorButton.whileHeld(new MovingMotors());
     motorButton.whenReleased(new StoppingMotors());
+    stickBoi.getX();
+    stickBoi.getY();
 
   }
 }
