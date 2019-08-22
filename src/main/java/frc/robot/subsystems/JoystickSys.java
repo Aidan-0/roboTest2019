@@ -18,14 +18,17 @@ import frc.robot.commands.*;
 public class JoystickSys extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-
+public WPI_TalonSRX armTally1;
+double deadzone = 0.5;
 
 public JoystickSys(int tally1id) {
-
+  armTally1 = new WPI_TalonSRX(tally1id);
 }
   
 public void JoystickMotors(Joystick stickBoi) {
-  
+  if (stickBoi.getY()>deadzone){
+    armTally1.set(stickBoi.getY());
+  }
 }
 
 @Override
