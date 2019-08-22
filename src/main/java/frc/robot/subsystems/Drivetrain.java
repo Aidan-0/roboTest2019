@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.AutoCorrect;
 
+
 /**
  * An example subsystem.  You can replace me with your own Subsystem.
  */
@@ -21,9 +22,9 @@ public class Drivetrain extends Subsystem {
   // here. Call these from Commands.
 
   public WPI_TalonSRX tally1;
-  public int encoder1;
-  public int breakPoint = 50;
-  public int variance = 300;
+  public double encoder1;
+  public int goalPoint = 100;
+  public int variance = 450;
 
   public Drivetrain(int tally1id, int encoder1id) {
 
@@ -42,9 +43,18 @@ public class Drivetrain extends Subsystem {
   public void AutoCorrect() {
     encoder1 = tally1.getSensorCollection().getQuadraturePosition();
     SmartDashboard.putNumber("Encoder is at pos: ", encoder1);
-    if (encoder1>(breakPoint+variance)) {
-      tally1.set(1);
+    //tally.set(1); Subtracts Encoder Value
+    if (encoder1>(goalPoint+variance)) {
+      tally1.set(0.5);
     }
+    if (encoder1<(goalPoint-variance)) {
+      tally1.set(-0.5);
+    }
+
+    if (encoder1>=(goalPoint-variance)&&encoder1<=(goalPoint+variance)) {
+      tally1.set(0);
+    }
+
   }
   
   @Override
