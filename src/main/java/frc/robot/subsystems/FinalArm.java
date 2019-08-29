@@ -7,44 +7,26 @@
 
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.robot.commands.JoystickMotors;
+import frc.robot.commands.MovingArm;
+
+
 /**
  * An example subsystem.  You can replace me with your own Subsystem.
  */
-public class JoystickSys extends Subsystem {
+public class FinalArm extends Subsystem {
+  double encoder1;
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-public WPI_TalonSRX joyTally1;
-double deadzone = 0.02;
-int limit = 5000;
+  public FinalArm() {
 
-public JoystickSys(int tally1id) {
-  joyTally1 = new WPI_TalonSRX(tally1id);
-}
-  
-public void JoystickMotors(Joystick stickBoi) {
-  if (stickBoi.getY()>deadzone||stickBoi.getY()<-deadzone){
-    joyTally1.set(stickBoi.getY());
   }
-  /*if (stickBoi.getY()>=limit) {
-    joyTally1.set(0);
-  }
-  if (stickBoi.getY()<=-limit) {
-    joyTally1.set(0);
-  } */
-  else {
-    joyTally1.set(0);
-  }
-}
+  public void MovingArm() {
 
-@Override
+  }
+  @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
-    //setDefaultCommand(new JoystickMotors());
+    setDefaultCommand(new MovingArm());
   }
 }

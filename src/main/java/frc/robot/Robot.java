@@ -28,6 +28,7 @@ public class Robot extends TimedRobot {
   public static Pneumatics pneumatics = new Pneumatics(RobotMap.mod1, RobotMap.sully1id, RobotMap.doubleSully2id1, RobotMap.doubleSully2id2);
   public static Drivetrain drivetrain = new Drivetrain(RobotMap.tally1id, RobotMap.encoder1id);
   public static JoystickSys joystickSys = new JoystickSys(RobotMap.tally1id);
+  public static FinalArm finalArm = new FinalArm();
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
