@@ -19,15 +19,18 @@ public class JoystickSys extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 public WPI_TalonSRX armTally1;
-double deadzone = 0.5;
+double deadzone = 0.02;
 
 public JoystickSys(int tally1id) {
   armTally1 = new WPI_TalonSRX(tally1id);
 }
   
 public void JoystickMotors(Joystick stickBoi) {
-  if (stickBoi.getY()>deadzone){
+  if (stickBoi.getY()>deadzone||stickBoi.getY()<-deadzone){
     armTally1.set(stickBoi.getY());
+  }
+  else {
+    armTally1.set(0);
   }
 }
 
