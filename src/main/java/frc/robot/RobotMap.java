@@ -25,10 +25,10 @@ public class RobotMap {
   // public static int rangefinderModule = 1;
 
   public static int mod1 = 1;
-  public static int sully1id = 1;
+  public static int sully1id = 0;
   
-  public static int doubleSully2id1 = 2;
-  public static int doubleSully2id2 = 3;
+  public static int doubleSully2id1 = 1;
+  public static int doubleSully2id2 = 2;
 
   public static int tally1id = 1;
 

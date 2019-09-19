@@ -39,9 +39,11 @@ public class Pneumatics extends Subsystem {
   public void DoubleToggle() {
     if (DoubleTrouble == true) {
       doubleSully1.set(Value.kForward);
+      DoubleTrouble = false;
     }
-    if (DoubleTrouble == false) {
+    else if (DoubleTrouble == false) {
       doubleSully1.set(Value.kReverse);
+      DoubleTrouble = true;
     }
 
   }
