@@ -47,7 +47,7 @@ public class Drivetrain extends Subsystem {
     if (encoder1>(goalPoint+variance)) {
       tally1.set(0.5);
     }
-    if (encoder1<(goalPoint-variance)) {
+    else if (encoder1<(goalPoint-variance)) {
       tally1.set(-0.5);
     }
 
